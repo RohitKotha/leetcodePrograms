@@ -1,25 +1,27 @@
-    
+#include <iostream>
+#include <stack>
+#include <vector>
+
 class Solution {
 public:
-    string reverseParentheses(std::string s) {
+    std::string reverseParentheses(std::string s) {
         std::stack<char> st;
 
         for (int i = 0; i < s.length(); i++) {
             char ch = s[i];
 
             if (ch == ')') {
-                std::queue<char> q;
+                std::vector<char> v;
 
                 while (st.top() != '(') {
-                    q.push(st.top());
+                    v.push_back(st.top());
                     st.pop();
                 }
 
                 st.pop();
 
-                while (!q.empty()) {
-                    st.push(q.front());
-                    q.pop();
+                for (char c : v) {
+                    st.push(c);
                 }
             } else {
                 st.push(ch);
@@ -37,6 +39,5 @@ public:
         return ans;
     }
 };
-
 
 
