@@ -12,11 +12,9 @@ public:
         ListNode* fast=head;
         ListNode* slow=head;
         while(true){
-            
             if(fast==NULL || fast->next==NULL || slow->next==NULL){
                 return false;
             }
-            
             slow=slow->next;
             fast=fast->next->next;
             if(fast==slow){
