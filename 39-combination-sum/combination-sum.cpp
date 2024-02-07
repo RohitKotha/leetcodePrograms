@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>>v1;
     vector<int> vk;
-    void fun(vector<int> v,int t,int i){
+    void fun(vector<int> &v,int t,int i){
         if(i>=v.size()){
             if(t==0){
                 v1.push_back(vk);
