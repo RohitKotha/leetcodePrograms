@@ -1,6 +1,3 @@
-#include <vector>
-#include <queue>
-using namespace std;
 
 class Solution {
 public:
@@ -13,11 +10,9 @@ public:
             int d = b - a;
             if (d > 0) {
                 q.push(d);
-                cout<<d<<'/';
-                cout<<endl;
                 if (q.size() > ladders) {
                     bricks -= q.top();
-                    cout<<q.top()<<". ";
+                    cout<<q.top()<<" ";
                     
                     q.pop();
                     if (bricks < 0) {
