@@ -2,7 +2,7 @@ class Solution {
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
         int c=0;
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         if(trust.size() == 0){
             if(n ==1){
                 return n;
