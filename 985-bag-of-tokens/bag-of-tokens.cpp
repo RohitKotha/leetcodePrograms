@@ -7,7 +7,6 @@ public:
         int maxi=0;
         sort(tokens.begin(),tokens.end());
         while(i<=j){
-            
             if(tokens[i]<=power){
                 c+=1;
                 power-=tokens[i];
@@ -15,7 +14,6 @@ public:
                 maxi=max(c,maxi);
             }
             else if(c>0){
-                
                     c--;
                     power+=tokens[j--];
                     
@@ -23,8 +21,6 @@ public:
                 else{
                     break;
                 }
-
-
         }
         return maxi;
 
