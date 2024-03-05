@@ -1,17 +1,14 @@
-#include <iostream>
-#include <stack>
-#include <vector>
 
 class Solution {
 public:
-    std::string reverseParentheses(std::string s) {
-        std::stack<char> st;
+    std::string reverseParentheses(string s) {
+        stack<char> st;
 
         for (int i = 0; i < s.length(); i++) {
             char ch = s[i];
 
             if (ch == ')') {
-                std::vector<char> v;
+                vector<char> v;
 
                 while (st.top() != '(') {
                     v.push_back(st.top());
@@ -28,7 +25,7 @@ public:
             }
         }
 
-        std::string ans(st.size(), ' ');
+        string ans(st.size(), ' ');
         int i = ans.length() - 1;
 
         while (!st.empty()) {
