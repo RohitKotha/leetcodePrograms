@@ -1,10 +1,11 @@
 class Solution {
 public:
     int passThePillow(int n, int time) {
-        time%=(n-1)*2;
-        if(time<n){
-            return 1+time;
+        int round=time/(n-1);
+        int timeleft=time%(n-1);
+        if(round%2==0){
+            return timeleft+1;
         }
-        return n-(time-(n-1));
+        return n-timeleft;
     }
 };
