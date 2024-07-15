@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-TreeNode* fun(int r, map<int,vector<int>>& mp) {
+TreeNode* fun(int r, unordered_map<int,vector<int>>& mp) {
     if (mp.find(r) == mp.end()) {
       return NULL;
     }
@@ -28,8 +28,8 @@ TreeNode* fun(int r, map<int,vector<int>>& mp) {
   }
 
     TreeNode* createBinaryTree(vector<vector<int>>& desc) {
-          map<int,vector<int>>mp;
-        map<int,int>ro;
+          unordered_map<int,vector<int>>mp;
+        unordered_map<int,int>ro;
         int n=desc.size();
         for(int i=0;i<n;i++){
         int p = desc[i][0];
@@ -65,13 +65,7 @@ TreeNode* fun(int r, map<int,vector<int>>& mp) {
 
 
 /////////////////////////////////////////////////////////////////
-for (const auto& pair : mp) {
-        cout << "Key: " << pair.first << ", Values: ";
-        for (const auto& val : pair.second) {
-            cout << val << " ";
-        }
-        cout << endl;
-    }
+
 /////////////////////////////////////////////////////////////////
 int pp;
 for(auto it:ro){
@@ -80,7 +74,7 @@ pp=it.first;
 break;
     }
 }
-cout<<pp;
+
 
 TreeNode* root=fun(pp,mp);
 
