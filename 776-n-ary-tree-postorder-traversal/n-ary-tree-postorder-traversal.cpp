@@ -21,6 +21,9 @@ public:
 class Solution {
 public:
 void fun(Node*root,vector<int>&ans){
+    if(root==NULL){
+        return;
+    }
     for(int i=0;i<root->children.size();i++){
         fun(root->children[i],ans);
     }
