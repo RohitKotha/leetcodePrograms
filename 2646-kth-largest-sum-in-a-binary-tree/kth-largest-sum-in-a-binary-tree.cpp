@@ -11,20 +11,31 @@
  */
 class Solution {
 public:
-    void fun(TreeNode*root,long long l,unordered_map<long long,long long>&mp){
-        if(root==NULL){
-            return;
-        }
-        mp[l]+=root->val;
-        fun(root->left,l+1,mp);
-        fun(root->right,l+1,mp);
-    }
     long long kthLargestLevelSum(TreeNode* root, int k) {
         vector<long long>v1;
+        queue<TreeNode*>q1;
+        q1.push(root);
+        long long i=1;
         unordered_map<long long,long long>mp;
-        fun(root,1,mp);
-        for(auto i:mp){
-            v1.push_back(i.second);
+        while(!q1.empty()){
+            long long n=q1.size();
+            while(n!=0){
+                TreeNode*temp=q1.front();
+                q1.pop();
+                if(temp->left){
+                    q1.push(temp->left);
+                }
+                if(temp->right){
+                    q1.push(temp->right);
+                }
+                mp[i]+=temp->val;
+                n--;
+            }
+            i++;
+        }
+
+        for(auto it:mp){
+            v1.push_back(it.second);
         }
         sort(begin(v1),end(v1));
         reverse(begin(v1),end(v1));
@@ -32,5 +43,6 @@ public:
             return v1[k-1];
         }
         return -1;
+
     }
 };
