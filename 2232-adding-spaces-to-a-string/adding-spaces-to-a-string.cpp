@@ -5,10 +5,10 @@ public:
         int j=0;
         for(int i=0;i<s.size();i++){
             if(j<spaces.size() and i==spaces[j]){
-                st+=' ';
+                st.push_back(' ');
                 j++;
             }
-            st+=s[i];
+            st.push_back(s[i]);
         }
         return st;
     }
