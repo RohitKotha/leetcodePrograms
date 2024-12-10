@@ -3,11 +3,13 @@ public:
     int maximumLength(string s) {
         map<pair<char,int>,int>mp;
         for(int i=0;i<s.size();i++){
-            string temp="";
+            char temp=s[i];
+            int l=0;
             for(int j=i;j<s.size();j++){
-                if(temp.empty() or temp.back()==s[j]){
-                    temp.push_back(s[j]);
-                    mp[{s[j],temp.size()}]+=1;
+                if(temp==s[j]){
+                    l++;
+                    mp[{s[j],l}]+=1;
+                    
                 }else{
                     break;
                 }
